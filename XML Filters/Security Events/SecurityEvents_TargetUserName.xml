@@ -1,0 +1,9 @@
+XML filter to search for a specific TargetUserName in Security events (change "USER"):
+
+<QueryList>
+<Query Id="0" Path="Security">
+<Select Path="Security">
+*[EventData[(Data[@Name='TargetUserName'] = 'USER')]]
+</Select>
+</Query>
+</QueryList>

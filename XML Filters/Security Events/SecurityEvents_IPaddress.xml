@@ -1,0 +1,9 @@
+XML filter to search for a specific IP address in Security events (change "IPADDRESS"):
+
+<QueryList>
+<Query Id="0" Path="Security">
+<Select Path="Security">
+*[EventData[(Data[@Name='IpAddress'] = 'IPADDRESS')]]
+</Select>
+</Query>
+</QueryList>

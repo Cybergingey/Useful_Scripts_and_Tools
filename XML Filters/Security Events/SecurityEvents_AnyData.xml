@@ -1,0 +1,9 @@
+XML filter to search ANY field for a specific string in Security events (change "DATA"):
+
+<QueryList>
+<Query Id="0" Path="Security">
+<Select Path="Security">
+*[EventData[Data and (Data='DATA')]]
+</Select>
+</Query>
+</QueryList>
