@@ -1,0 +1,9 @@
+XML filter to get RDP local session manager logs for a specific user (Application and Services Logs > Microsoft > Windows > TerminalServices > LocalSessionManager/Operational)
+
+<QueryList>
+<Query Id="0" Path="Microsoft-Windows-TerminalServices-LocalSessionManager/Operational">
+<Select Path="Microsoft-Windows-TerminalServices-LocalSessionManager/Operational">
+*[UserData[EventXML[@xmlns='Event_NS'][User='DOMAIN\USERNAME']]]
+</Select>
+</Query>
+</QueryList>

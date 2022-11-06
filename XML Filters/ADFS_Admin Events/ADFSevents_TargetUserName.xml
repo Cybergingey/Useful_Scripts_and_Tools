@@ -1,0 +1,9 @@
+XML filter to search for a specific username in ADFS/Admin events (change "USER"):
+
+<QueryList>
+<Query Id="0" Path="AD FS/Admin">
+<Select Path="AD FS/Admin">
+*[System[(Data[@Name='TargetUserName'] = 'USER')]]
+</Select>
+</Query>
+</QueryList>
