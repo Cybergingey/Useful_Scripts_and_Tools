@@ -1,0 +1,9 @@
+XML filter to search for a specific IP address in DNS Server events (change "IPADDRESS"):
+
+<QueryList>
+<Query Id="0" Path="DNS Server">
+<Select Path="DNS Server">
+*[EventData[@Name='param1'] = 'IPADDRESS')]
+</Select>
+</Query>
+</QueryList>
