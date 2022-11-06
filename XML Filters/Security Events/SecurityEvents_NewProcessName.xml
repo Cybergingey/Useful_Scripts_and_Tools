@@ -1,0 +1,9 @@
+XML filter to search for a specific new process being created (e.g. C:\Windows\System32\LogonUI.exe) in Security events (change "PROCESS"):
+
+<QueryList>
+<Query Id="0" Path="Security">
+<Select Path="Security">
+*[EventData[(Data[@Name='NewProcessName'] = 'PROCESS')]]
+</Select>
+</Query>
+</QueryList>

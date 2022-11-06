@@ -1,0 +1,9 @@
+XML filter to search for a specific Workstation name (e.g. Laptop-001) in Security events (change "DEVICE"):
+
+<QueryList>
+<Query Id="0" Path="Security">
+<Select Path="Security">
+*[EventData[(Data[@Name='Workstation'] = 'DEVICE')]]
+</Select>
+</Query>
+</QueryList>
