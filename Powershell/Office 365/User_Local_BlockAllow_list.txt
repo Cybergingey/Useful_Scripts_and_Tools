@@ -1,0 +1,19 @@
+	1. Connect to Exchange Online Powershell and get details of users mailbox:
+
+$email = Read-Host -Prompt 'Input the admin account email'
+$useremail = Read-Host -Prompt 'Input the users email'
+Connect-ExchangeOnline -UserPrincipalName $email
+Connect-IPPSSession -Credential $UserCredential
+Get-MailboxJunkEmailConfiguration -Identity $useremail
+
+
+	2. If you can't see the email/domain due to too many in list, export results to csv to read better:
+    
+$email = Read-Host -Prompt 'Input the users account email'
+Get-MailboxJunkEmailConfiguration -Identity $email  | Select BlockedSendersAndDomains | Export-Csv -Path c:\temp\blockedsenderexport.csv
+
+	3. To remove a blocked sender use the below:
+
+$email = Read-Host -Prompt 'Input the users email'
+$rmemail = Read-Host -Prompt 'Input the email/domain to remove'
+Set-MailboxJunkEmailConfiguration $email  -BlockedSendersAndDomains @{Remove=$rmemail}
