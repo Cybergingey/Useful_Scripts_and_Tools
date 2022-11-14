@@ -6,5 +6,5 @@ DeviceTvmSoftwareVulnerabilities
 )
 on CveId 
 | project CveId , SoftwareName , SoftwareVersion , VulnerabilityDescription , VulnerabilitySeverityLevel, IsExploitAvailable , CvssScore , DeviceName, RecommendedSecurityUpdate 
-| distinct DeviceName, SoftwareName , SoftwareVersion, CveId, VulnerabilityDescription , VulnerabilitySeverityLevel, IsExploitAvailable, RecommendedSecurityUpdate   
+| distinct DeviceName, SoftwareName , SoftwareVersion, CveId, VulnerabilityDescription , VulnerabilitySeverityLevel, IsExploitAvailable, RecommendedSecurityUpdate, CvssScore
 | sort by DeviceName asc , DeviceName
