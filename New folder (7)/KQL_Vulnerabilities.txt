@@ -1,0 +1,10 @@
+DeviceTvmSoftwareVulnerabilities
+| project  DeviceName, SoftwareName, CveId, SoftwareVersion, VulnerabilitySeverityLevel , OSPlatform, RecommendedSecurityUpdate 
+|where VulnerabilitySeverityLevel contains "Critical" (edit "Critical" to whatever severity you need. REMOVE THIS BRACKET TOO)
+| join (DeviceTvmSoftwareVulnerabilitiesKB
+| project AffectedSoftware, VulnerabilityDescription , CveId , CvssScore , IsExploitAvailable
+)
+on CveId 
+| project CveId , SoftwareName , SoftwareVersion , VulnerabilityDescription , VulnerabilitySeverityLevel, IsExploitAvailable , CvssScore , DeviceName, RecommendedSecurityUpdate 
+| distinct DeviceName, SoftwareName , SoftwareVersion, CveId, VulnerabilityDescription , VulnerabilitySeverityLevel, IsExploitAvailable, RecommendedSecurityUpdate   
+| sort by DeviceName asc , DeviceName
